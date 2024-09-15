@@ -1,0 +1,18 @@
+services:
+  auth-vivelibre:
+    image: skeet15/auth-vivelibre
+    container_name: auth-vivelibre
+    platform: linux/amd64
+    ports:
+      - "8080:8080"
+
+  token:
+    image: wariano/ptbvl:latest
+    container_name: token
+    platform: linux/amd64
+    environment:
+      - REST_ClIENT_TOKEN_URL=http://auth-vivelibre:8080/token
+    ports:
+      - "8081:8081"
+    depends_on:
+      - auth-vivelibre
