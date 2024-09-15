@@ -10,8 +10,6 @@ services:
     image: wariano/ptbvl:latest
     container_name: token
     platform: linux/amd64
-    environment:
-      - REST_ClIENT_TOKEN_URL=http://auth-vivelibre:8080/token
     ports:
       - "8081:8081"
     depends_on:
